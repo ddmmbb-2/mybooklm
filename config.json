@@ -1,0 +1,9 @@
+{
+    "api_url": "http://you-ip/v1/chat/completions",
+    "api_key": "not-needed",
+    "model": "gemma4:e4b",
+    "max_context_tokens": 128000,
+    "max_output_tokens": 8912,
+    "temperature": 0.7,
+    "use_multimodal": false
+}
