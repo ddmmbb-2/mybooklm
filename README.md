@@ -172,6 +172,24 @@ echo '管理員建立完成，請立即刪除 install.php';
 
 ---
 
+
+
+### 🔗 設定分享網域
+
+由於系統會為每本筆記自動產生「公開分享連結」，請先開啟 `note.php`，找到下方的分享連結預設值：
+
+```php
+value="<?= htmlspecialchars('https://you-ip/sharenote.php?note=' . urlencode($note)) ?>"
+```
+
+將 `https://you-ip` 修改為你實際的網站根網址（例如 `https://your-domain.com` 或 `http://192.168.1.100`），**務必保留後方的 `/sharenote.php?note=`**。修改後，分享連結才會指向正確的公開頁面。
+
+> 如果你使用反向代理或自訂埠號，請確認該網址能讓外部使用者直接存取 `sharenote.php`。
+
+---
+
+把這段加在原介紹的「一般使用者」說明之前，就能完整涵蓋分享設定的注意事項了。
+
 ## 🔐 安全性提醒
 
 - 部署後請**務必刪除** `install.php`。
