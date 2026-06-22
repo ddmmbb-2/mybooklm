@@ -148,7 +148,21 @@ echo '管理員建立完成，請立即刪除 install.php';
 - **Apache**：直接使用專案內 `.htaccess`（需啟用 `mod_rewrite`、`mod_headers`）。
 - **Nginx**：需手動設定類似規則（禁止存取 `data/`、`config.json` 等）。
 
-### 6. 訪問
+
+### 6. 設定分享網域
+
+由於系統會為每本筆記自動產生「公開分享連結」，請先開啟 `note.php`，找到下方的分享連結預設值：
+
+```php
+value="<?= htmlspecialchars('https://you-ip/sharenote.php?note=' . urlencode($note)) ?>"
+```
+
+將 `https://you-ip` 修改為你實際的網站根網址（例如 `https://your-domain.com` 或 `http://192.168.1.100`），**務必保留後方的 `/sharenote.php?note=`**。修改後，分享連結才會指向正確的公開頁面。
+
+> 如果你使用反向代理或自訂埠號，請確認該網址能讓外部使用者直接存取 `sharenote.php`。
+
+
+### 7. 訪問
 
 開啟瀏覽器，進入網站根目錄，使用剛才建立的管理員帳號登入。
 
@@ -170,21 +184,7 @@ echo '管理員建立完成，請立即刪除 install.php';
 - 可進入 **使用者管理**（`admin.php`）新增、刪除、變更角色。
 - 可進入 **API 設定**（`settings.php`）調整模型參數。
 
----
 
-
-
-### 🔗 設定分享網域
-
-由於系統會為每本筆記自動產生「公開分享連結」，請先開啟 `note.php`，找到下方的分享連結預設值：
-
-```php
-value="<?= htmlspecialchars('https://you-ip/sharenote.php?note=' . urlencode($note)) ?>"
-```
-
-將 `https://you-ip` 修改為你實際的網站根網址（例如 `https://your-domain.com` 或 `http://192.168.1.100`），**務必保留後方的 `/sharenote.php?note=`**。修改後，分享連結才會指向正確的公開頁面。
-
-> 如果你使用反向代理或自訂埠號，請確認該網址能讓外部使用者直接存取 `sharenote.php`。
 
 ---
 
