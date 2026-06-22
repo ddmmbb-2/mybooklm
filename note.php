@@ -452,7 +452,7 @@ $urls = $fm->getUrls($note);
         <label style="font-size:0.85rem;">分享連結：</label>
         <div style="display:flex; gap:0.5rem;">
             <input type="text" id="share-url" readonly style="flex:1; cursor:pointer;"
-                   value="<?= htmlspecialchars('https://edu.vet.com.tw/ma/notebooklm/sharenote.php?note=' . urlencode($note)) ?>">
+                   value="<?= htmlspecialchars('https://you-ip/sharenote.php?note=' . urlencode($note)) ?>">
             <button id="copy-share-btn" class="btn" style="padding:0.4rem 0.8rem;">複製</button>
         </div>
         <small style="color:#6b7280;">任何人透過此連結即可唯讀瀏覽筆記並使用 AI 問答</small>
